@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sticky_header_list/sticky_header_list.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 
@@ -8,12 +8,11 @@ import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 void main() {
   runApp(MaterialApp(
     title: 'SFST Guide',
-theme: ThemeData.light(),
 
       routes: {
         '/': (context)=> FirstScreen(),
         '/c': (_) => new WebviewScaffold(
-          url: "https://zavon.org/sfst/changelog",
+          url: "https://zavon.org/sfst/changelog.md",
           appBar: new AppBar(
             title: new Text("Changelog"),
           ),
@@ -23,7 +22,7 @@ theme: ThemeData.light(),
 }
 
 
-final flutterWebviewPlugin = new FlutterWebviewPlugin();
+//final flutterWebviewPlugin = new FlutterWebviewPlugin();
 
 class FirstScreen extends StatefulWidget {
   @override
@@ -436,30 +435,7 @@ return Scaffold(
                     fontSize: 20.0,
                     color: Colors.black,
                   ),
-                ),
-            new TextSpan(
-              text: '\n\n\nChangelog\n',
-              style: new TextStyle(
-                fontSize: 28.0,
-                color: Colors.black,
-              ),
-            ),
-            new TextSpan(
-              text: '\n-New app layout\n',
-              style: new TextStyle(
-                fontSize: 18.0,
-                color: Colors.black,
-              ),
-
-            ),
-            new TextSpan(
-              text: '\n-Added clues section with checkbox. Preparing'
-                  ' to add report creation\n',
-              style: new TextStyle(
-                fontSize: 18.0,
-                color: Colors.black,
-              ),
-            )
+                )
               ],
             ),
           ),
@@ -472,13 +448,13 @@ return Scaffold(
       ),
       ),
 
-/*        floatingActionButton: new FloatingActionButton(
+       floatingActionButton: new FloatingActionButton(
           child: new Icon(Icons.announcement),
           onPressed: (){
             Navigator.pushNamed(context, '/c');
 
           },
-        )*/
+        )
     );
 
   }

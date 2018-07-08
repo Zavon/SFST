@@ -1,4 +1,4 @@
-package org.zavon.sfstguide;
+package org.zavon.sfst;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
