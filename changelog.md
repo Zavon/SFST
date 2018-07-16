@@ -4,8 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 - Prepare for use of SharedPrefs to save checkbox value at close
-- Stage coding for use of changelog webview
 - Begin initial coding for saving clues to report form.
+
+## [1.6] - 2018-07-16
+### Added
+-Light and Dark toggle
+-Changelog Webview
 
 ## [1.5] - 2018-07-07
 ### Added
