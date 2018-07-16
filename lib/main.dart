@@ -56,61 +56,58 @@ class AboutScreenState extends State<AboutScreen> {
         appBar: new AppBar(
           title: new Text("About"),
         ),
-        body: new Container(
-          child: ListView(children: <Widget>[
-            new RichText(
+        body: Container(
+          child: ListView(
+              children: <Widget>[
+            new Text(
+              'Version\n',
               textAlign: TextAlign.center,
-              text: new TextSpan(
-                children: <TextSpan>[
-                  new TextSpan(
-                    text: 'Version\n',
-                    style: new TextStyle(
-                      fontSize: 28.0,
-                      color: Colors.grey[600],
+              style: TextStyle(
+                fontSize: 28.0
+              ),
+            ),
+                  Text(
+                    '1.6\n',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20.0
                     ),
                   ),
-                  new TextSpan(
-                    text: '\n1.5\n',
-                    style: new TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  new TextSpan(
-                    text: '\n\nDeveloper\n',
-                    style: new TextStyle(
-                      fontSize: 28.0,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  new TextSpan(
-                    text: '\nZavon\n',
-                    style: new TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  new TextSpan(
-                    text: '\n\nContact\n',
-                    style: new TextStyle(
-                      fontSize: 28.0,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  new TextSpan(
-                    text: '\nzavon@zavon.org\n',
-                    style: new TextStyle(
-                      fontSize: 20.0,
-
-                    ),
-                  )
+            Text(
+              'Developer\n',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 28.0
+              ),
+            ),
+            Text(
+              'Zavon\n',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 20.0
+              ),
+            ),
+            Text(
+              'Contact\n',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 28.0
+              ),
+            ),
+            Text(
+              'zavon@zavon.org',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 20.0,
+              ),
+            )
                 ],
               ),
             ),
 
             // ...
-          ]),
-        ),
+
+
         floatingActionButton: new FloatingActionButton(
           child: new Icon(Icons.announcement),
           onPressed: () {
@@ -159,97 +156,80 @@ class FirstScreenState extends State<FirstScreen> {
                   ),
                   body: TabBarView(
                     children: <Widget>[
-                      new Container(
+                      Container(
                         padding: new EdgeInsets.only(
                             top: 10.0, left: 8.0, right: 8.0),
-                        child: new Column(
-                          children: <Widget>[
-                            new Container (
-                            child: new RichText(
-                              textAlign: TextAlign.center,
-                              text: new TextSpan(
+                        child: ListView(
+                          children: [
+                            Container(
+                              child: Text(
+                                'Horizontal Gaze Nystagmus',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 28.0
+                                    )
+                              ),
 
-                                children: <TextSpan>[
-                                  new TextSpan(
-                                    text: 'Horizontal Gaze Nystagmus\n',
-                                    style:  TextStyle(
-                                      fontSize: 28.0,
-                                      color: Colors.grey[600]
-                                    ),
-                                  ),
-                                  new TextSpan(
-                                    text:
-                                        '\n1. I am going to check your eyes.\n\n2. Keep your head still and follow the stimulus with your eyes only.\n\n3. Do not move your head.\n\n4. Do you understand the instructions?',
-                                    style: new TextStyle(
-                                      fontSize: 20.0,
-                                      color: Colors.grey[600],
-                                    ),
-                                  ),
-                                ],
-                              ),
                             ),
-                            )],
-                        ),
+                            Text(
+                              '\n1. I am going to check your eyes.\n\n2. Keep your head still and follow the stimulus with your eyes only.\n\n3. Do not move your head.\n\n4. Do you understand the instructions?',
+                            textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 20.0,
+                              ),
+                            )
+                          ],
+                        )
                       ),
                       new Container(
                         padding: new EdgeInsets.only(
                             top: 10.0, left: 8.0, right: 8.0),
-                        child: new ListView(
-                          children: <Widget>[
-                            new RichText(
-                              textAlign: TextAlign.center,
-                              text: new TextSpan(
-                                children: <TextSpan>[
-                                  new TextSpan(
-                                    text: 'Walk And Turn \n',
-                                    style: new TextStyle(
-                                      fontSize: 28.0,
-                                      color: Colors.grey[600],
-                                    ),
-                                  ),
-                                  new TextSpan(
-                                    text:
-                                        "\n1. Put your left foot on the line and put your right foot in front of it with your right heel touching your left toe. Keep your hands at your side.\n\n2.Do not start until I tell you to.\n\n3. Do you understand the directions?\n\n4. When I tell you to begin, take nine heel to toe steps on the line, turn around keeping one foot on the line, and return nine heel to toe steps.\n\n5. On the ninth step, keep the front foot on the line and turn by taking several small steps with the other foot.\n\n6. Whilewalking, watch your feet at all times, keep arms at side, count steps out loud. Once you begin, do not stop until test is completed.\n\n7. Do you understand the instructions?\n\n8. You may begin the test\n",
-                                    style: new TextStyle(
-                                      color: Colors.grey[600],
-                                      fontSize: 20.0,
-                                    ),
-                                  ),
-                                ],
+                          child: ListView(
+                            children: [
+                              Container(
+                                child: Text(
+                                    'Walk and Turn',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 28.0
+                                    )
+                                ),
+
                               ),
-                            ),
-                          ],
-                        ),
+                              Text(
+                                '\n1. Put your left foot on the line and put your right foot in front of it with your right heel touching your left toe. Keep your hands at your side.\n\n2.Do not start until I tell you to.\n\n3. Do you understand the directions?\n\n4. When I tell you to begin, take nine heel to toe steps on the line, turn around keeping one foot on the line, and return nine heel to toe steps.\n\n5. On the ninth step, keep the front foot on the line and turn by taking several small steps with the other foot.\n\n6. Whilewalking, watch your feet at all times, keep arms at side, count steps out loud. Once you begin, do not stop until test is completed.\n\n7. Do you understand the instructions?\n\n8. You may begin the test.\n',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              )
+                            ],
+                          )
                       ),
                       new Container(
-                        padding: new EdgeInsets.only(
-                            top: 10.0, left: 8.0, right: 8.0),
-                        child: new ListView(
-                          children: <Widget>[
-                            new RichText(
-                              textAlign: TextAlign.center,
-                              text: new TextSpan(
-                                children: <TextSpan>[
-                                  new TextSpan(
-                                    text: 'One Legged Stand \n',
-                                    style: new TextStyle(
-                                      fontSize: 28.0,
-                                      color: Colors.grey[600],
-                                    ),
-                                  ),
-                                  new TextSpan(
-                                    text:
-                                        "\n1. Stand with your heels together and your arms at your side.\n\n2. Do not begin until I tell you to.\n\n3. Do you understand?\n\n4. When I tell you, I want you to raise one leg, either leg, approximately six inches off the ground, foot pointed out. Keep both legs straight and keep your eyes on the elevated foot.\n\n5. While holding that position, count out loud; one thousand and one, one thousand and two, one thousand and three, and so forth until told to stop.\n\n6. Do you understand the instructions?\n\n7. You may begin the test.\n",
-                                    style: new TextStyle(
-                                      fontSize: 20.0,
-                                      color: Colors.grey[600],
-                                    ),
-                                  ),
-                                ],
+                          padding: new EdgeInsets.only(
+                              top: 10.0, left: 8.0, right: 8.0),
+                          child: ListView(
+                            children: [
+                              Container(
+                                child: Text(
+                                    'One Legged Stand',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 28.0
+                                    )
+                                ),
+
                               ),
-                            ),
-                          ],
-                        ),
+                              Text(
+                                '\n1. Stand with your heels together and your arms at your side.\n\n2. Do not begin until I tell you to.\n\n3. Do you understand?\n\n4. When I tell you, I want you to raise one leg, either leg, approximately six inches off the ground, foot pointed out. Keep both legs straight and keep your eyes on the elevated foot.\n\n5. While holding that position, count out loud; one thousand and one, one thousand and two, one thousand and three, and so forth until told to stop.\n\n6. Do you understand the instructions?\n\n7. You may begin the test.',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              )
+                            ],
+                          )
                       ),
                     ],
                   ),
