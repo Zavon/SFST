@@ -1,5 +1,5 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
-import 'package:dynamic_theme/theme_switcher_widgets.dart';
+import 'package:pdfview/pdfview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:sticky_header_list/sticky_header_list.dart';
@@ -268,198 +268,232 @@ class SecondScreen extends StatefulWidget {
 }
 
 class SecondScreenState extends State<SecondScreen> {
-  Map<String, bool> values1Hdr = {
-    'Horizontal Gaze Nystagmus Right Eye': false,
-  };
+//HGN
+  bool hgn1 = false; //Lack of Smooth Pursuit
+  bool hgn2 = false; //Distinct and Sustained Nystagmus at Maximum Deviation
+  bool hgn3 = false; //Onset prior to 45 degrees
+  bool hgn4 = false; //Lack of Smooth Pursuit
+  bool hgn5 = false; //Distinct and Sustained Nystagmus at Maximum Deviation
+  bool hgn6 = false; //Onset prior to 45 degrees
 
-  Map<String, bool> values = {
-    'Lack of Smooth Pursuit': false,
-    'Distinct and Sustained Nystagmus at Maximum Deviation': false,
-    'Onset Prior To 45 degress': false,
-  };
+  //WAT
+  bool wat1 = false; //Can't keep balance
+  bool wat2 = false; //Starts too soon
+  bool wat3 = false; //Stops Walking
+  bool wat4 = false; //Misses heel to toe
+  bool wat5 = false; //Steps off line
+  bool wat6 = false; //Uses arms for balance
+  bool wat7 = false; //Wrong number of steps
+  bool wat8 = false; //Improper turn
 
-  Map<String, bool> valuesLHdr = {
-    'Horizontal Gaze Nystagmus Right Eye': false,
-  };
-
-  Map<String, bool> valuesL = {
-    'Lack of Smooth Pursuit': false,
-    'Distinct and Sustained Nystagmus at Maximum Deviation': false,
-    'Onset Prior To 45 degress': false,
-  };
-
-  Map<String, bool> values2Hdr = {
-    'Walk and Turn': false,
-  };
-  Map<String, bool> values2 = {
-    'Starts too soon': false,
-    'Cannot keep balance': false,
-    'Stops while walking': false,
-    'Misses heel to toe': false,
-    'Steps off line': false,
-    'Improper turn': false,
-    'Wrong number of steps': false,
-  };
-
-  Map<String, bool> values3Hdr = {
-    'One Legged Stand': false,
-  };
-  Map<String, bool> values3 = {
-    'Swaying': false,
-    'Uses arms to balance': false,
-    'Hopping': false,
-    'Puts foot down': false,
-  };
+  //OLS
+  bool ols1 = false; //Sways
+  bool ols2 = false; //Uses Arms for Balance
+  bool ols3 = false; //Hops
+  bool ols4 = false; //Puts Foot Down
 
   @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(title: new Text('Clues')),
-        body: new Container(
-            child: new StickyList(
-          children: <StickyListRow>[
-            new HeaderRow(child: _hgnLHdr(4)),
-            new RegularRow(child: _hgnL()),
-            new HeaderRow(child: _hgnRHdr(1)),
-            new RegularRow(child: _hgnR()),
-            new HeaderRow(child: _watHdr(2)),
-            new RegularRow(child: _wat()),
-            new HeaderRow(child: _olsHdr(3)),
-            new RegularRow(child: _ols())
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: new AppBar(
+        title: new Text('Clues'),
+      ),
+
+      body: Container(
+        child: ListView(
+          children: <Widget>[
+            Text('Horizontal Gaze Nystagmus Left Eye',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+            new CheckboxListTile(
+              title: const Text('Lack of Smooth Pursuit'),
+              value: hgn1,
+                onChanged: (bool value) {
+                  setState(() {
+                    hgn1 = value;
+                  });
+                },
+            ),
+            new CheckboxListTile(
+              title: const Text('Distinct and Sustained  Nystagmus at Maximum Deviation'),
+              value: hgn2,
+              onChanged: (bool value) {
+                setState(() {
+                  hgn2 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text('Onset Prior to 45 Degrees'),
+              value: hgn3,
+              onChanged: (bool value) {
+                setState(() {
+                  hgn3 = value;
+                });
+              },
+            ),
+            Text('Horizontal Gaze Nystagmus Right Eye',
+              style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+            new CheckboxListTile(
+              title: const Text('Lack of Smooth Pursuit'),
+              value: hgn4,
+              onChanged: (bool value) {
+                setState(() {
+                  hgn4 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text('Distinct and Sustained  Nystagmus at Maximum Deviation'),
+              value: hgn5,
+              onChanged: (bool value) {
+                setState(() {
+                  hgn5 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text('Onset Prior to 45 Degrees'),
+              value: hgn6,
+              onChanged: (bool value) {
+                setState(() {
+                  hgn6 = value;
+                });
+              },
+            ),
+            Text('Walk and Turn',
+              style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+            new CheckboxListTile(
+              title: const Text("Can't Keep Balance"),
+              subtitle: const Text('Instruction Stage'),
+              value: wat1,
+              onChanged: (bool value) {
+                setState(() {
+                  wat1 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text('Starts too Soon'),
+              subtitle: const Text('Instruction Stage'),
+              value: wat2,
+              onChanged: (bool value) {
+                setState(() {
+                  wat2 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text("Stops Walking"),
+              value: wat3,
+              onChanged: (bool value) {
+                setState(() {
+                  wat3 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text('Misses Heel to Toe'),
+              value: wat4,
+              onChanged: (bool value) {
+                setState(() {
+                  wat4 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text("Steps Off Line"),
+              value: wat5,
+              onChanged: (bool value) {
+                setState(() {
+                  wat5 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text('Uses Arms for Balance'),
+              value: wat6,
+              onChanged: (bool value) {
+                setState(() {
+                  wat6 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text("Wrong Number of Steps"),
+              value: wat7,
+              onChanged: (bool value) {
+                setState(() {
+                  wat7 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text('Improper Turn'),
+              value: wat8,
+              onChanged: (bool value) {
+                setState(() {
+                  wat8 = value;
+                });
+              },
+            ),
+            Text('One Legged Stand',
+              style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+            new CheckboxListTile(
+              title: const Text("Sways"),
+              value: ols1,
+              onChanged: (bool value) {
+                setState(() {
+                  ols1 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text('Uses Arms for Balance'),
+              value: ols2,
+              onChanged: (bool value) {
+                setState(() {
+                  ols2 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text("Hops"),
+              value: ols3,
+              onChanged: (bool value) {
+                setState(() {
+                  ols3 = value;
+                });
+              },
+            ),
+            new CheckboxListTile(
+              title: const Text('Puts Foot Down'),
+              value: ols4,
+              onChanged: (bool value) {
+                setState(() {
+                  ols4 = value;
+                });
+              },
+            ),
+
           ],
-        )));
-  }
-
-  List<Widget> getRegularWidgets() {
-    List<Widget> widgets = values.keys.map((key) {
-      return new CheckboxListTile(
-          title: new Text(key),
-          value: values[key],
-          onChanged: (bool value) {
-            setState(() {
-              values[key] = value;
-            });
-          });
-    }).toList();
-    return widgets;
-  }
-
-  List<Widget> hgnL() {
-    List<Widget> widgets4 = valuesL.keys.map((key) {
-      return new CheckboxListTile(
-          title: new Text(key),
-          value: valuesL[key],
-          onChanged: (bool value) {
-            setState(() {
-              valuesL[key] = value;
-            });
-          });
-    }).toList();
-
-    return widgets4;
-  }
-
-  List<Widget> ols() {
-    List<Widget> widgets3 = values3.keys.map((key) {
-      return new CheckboxListTile(
-          title: new Text(key),
-          value: values3[key],
-          onChanged: (bool value) {
-            setState(() {
-              values3[key] = value;
-            });
-          });
-    }).toList();
-
-    return widgets3;
-  }
-
-  List<Widget> wat() {
-    List<Widget> widgets2 = values2.keys.map((key) {
-      return new CheckboxListTile(
-          title: new Text(key),
-          value: values2[key],
-          onChanged: (bool value) {
-            setState(() {
-              values2[key] = value;
-            });
-          });
-    }).toList();
-
-    return widgets2;
-  }
-
-  Widget _hgnL() {
-    return new Column(
-      children: hgnL(),
-    );
-  }
-
-  Widget _hgnLHdr(index) {
-    return new Row(
-      children: <Widget>[
-        new Container(
-            child: new Text("Horizontal Gaze Nystagmus Left Eye",
-                style: new TextStyle(
-                    fontSize: 20.0,
-                    decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.bold)))
-      ],
-    );
-  }
-
-  Widget _hgnR() {
-    return new Column(
-      children: getRegularWidgets(),
-    );
-  }
-
-  Widget _hgnRHdr(index) {
-    return new Row(
-      children: <Widget>[
-        new Container(
-            child: new Text("Horizontal Gaze Nystagmus Right Eye",
-                style: new TextStyle(
-                    fontSize: 20.0,
-                    decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.bold)))
-      ],
-    );
-  }
-
-  Widget _ols() {
-    return new Column(
-      children: ols(),
-    );
-  }
-
-  Widget _olsHdr(index) {
-    return new Row(
-      children: <Widget>[
-        new Text("One Legged Stand",
-            style: new TextStyle(
-                fontSize: 20.0,
-                decoration: TextDecoration.underline,
-                fontWeight: FontWeight.bold))
-      ],
-    );
-  }
-
-  Widget _wat() {
-    return new Column(
-      children: wat(),
-    );
-  }
-
-  Widget _watHdr(index) {
-    return new Row(
-      children: <Widget>[
-        new Text("Walk and Turn",
-            style: new TextStyle(
-                fontSize: 20.0,
-                decoration: TextDecoration.underline,
-                fontWeight: FontWeight.bold))
-      ],
+        ),
+      ),
     );
   }
 }

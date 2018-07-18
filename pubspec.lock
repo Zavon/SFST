@@ -230,6 +230,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.1"
+  pdfview:
+    dependency: "direct main"
+    description:
+      name: pdfview
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.61"
   plugin:
     dependency: transitive
     description:

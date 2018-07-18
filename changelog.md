@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 - Prepare for use of SharedPrefs to save checkbox value at close
 - Begin initial coding for saving clues to report form.
 
+## [1.7] - 2018-07-18
+### Clues Page
+    -   Rebuilt page list
+
 ## [1.6] - 2018-07-16
 ### Added
 -Light and Dark toggle
