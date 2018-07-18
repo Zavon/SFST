@@ -30,8 +30,8 @@ android {
         applicationId "org.zavon.sfst"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 4
-        versionName "1.6"
+        versionCode 5
+        versionName "1.7"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 

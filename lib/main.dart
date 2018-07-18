@@ -275,7 +275,15 @@ class SecondScreenState extends State<SecondScreen> {
   bool hgn4 = false; //Lack of Smooth Pursuit
   bool hgn5 = false; //Distinct and Sustained Nystagmus at Maximum Deviation
   bool hgn6 = false; //Onset prior to 45 degrees
+  
 
+  String _hstring1;
+  String _hstring2;
+  String _hstring3;
+  String _hstring4;
+  String _hstring5;
+  String _hstring6;
+  
   //WAT
   bool wat1 = false; //Can't keep balance
   bool wat2 = false; //Starts too soon
@@ -494,6 +502,32 @@ class SecondScreenState extends State<SecondScreen> {
           ],
         ),
       ),
+
+
+      
+      floatingActionButton: new FloatingActionButton(
+          child: new Icon(Icons.receipt), onPressed: (){
+        _Shstring1();
+        _Shstring2();
+        pdfview("""<h1>SFST Report</h1><table border=1><td>Horizontal Gaze Nystagmus</td></table <ul><li>${_hstring1}</li>  <li>${_hstring2}</li> """);
+      }),
     );
+
+  }
+  void  _Shstring1() {
+      if (hgn1 == true) {
+        _hstring1 = "Defendant displayed a lack of smooth pursuit ";
+
+      } else if (hgn1 == false){
+        _hstring1 = "Defendant did not display a lack of smooth pursuit ";
+      };
+  }
+  void  _Shstring2() {
+    if (hgn2 == true) {
+      _hstring2 = "Defendant displayed Distinct and Sustained Nystagmus at Maximum Deviation";
+
+    } else if (hgn2 == false){
+      _hstring2 = "Defendant did not display Distinct and Sustained Nystagmus at Maximum Deviation ";
+    };
   }
 }
