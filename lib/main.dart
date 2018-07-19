@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
         defaultBrightness: Brightness.light,
         data: (brightness) => new ThemeData(
       primarySwatch: Colors.blue,
-      accentColor: Colors.blue,
+      accentColor: Colors.blueAccent,
+      primaryColorDark: Colors.blue,
       brightness: brightness,
     ),
     themedWidgetBuilder: (context, theme) {
@@ -275,7 +276,7 @@ class SecondScreenState extends State<SecondScreen> {
   bool hgn4 = false; //Lack of Smooth Pursuit
   bool hgn5 = false; //Distinct and Sustained Nystagmus at Maximum Deviation
   bool hgn6 = false; //Onset prior to 45 degrees
-  
+
 
   String _hstring1;
   String _hstring2;
@@ -283,7 +284,7 @@ class SecondScreenState extends State<SecondScreen> {
   String _hstring4;
   String _hstring5;
   String _hstring6;
-  
+
   //WAT
   bool wat1 = false; //Can't keep balance
   bool wat2 = false; //Starts too soon
@@ -294,40 +295,59 @@ class SecondScreenState extends State<SecondScreen> {
   bool wat7 = false; //Wrong number of steps
   bool wat8 = false; //Improper turn
 
+  String _wstring1;
+  String _wstring2;
+  String _wstring3;
+  String _wstring4;
+  String _wstring5;
+  String _wstring6;
+  String _wstring7;
+  String _wstring8;
+
+
   //OLS
   bool ols1 = false; //Sways
   bool ols2 = false; //Uses Arms for Balance
   bool ols3 = false; //Hops
   bool ols4 = false; //Puts Foot Down
 
+  String _ostring1;
+  String _ostring2;
+  String _ostring3;
+  String _ostring4;
+
+
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
         title: new Text('Clues'),
       ),
 
       body: Container(
-        child: ListView(
+        child: new ListView(
           children: <Widget>[
             Text('Horizontal Gaze Nystagmus Left Eye',
               style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold
               ),
             ),
             new CheckboxListTile(
               title: const Text('Lack of Smooth Pursuit'),
               value: hgn1,
-                onChanged: (bool value) {
-                  setState(() {
-                    hgn1 = value;
-                  });
-                },
+              activeColor: Colors.blueAccent,
+              onChanged: (bool value) {
+                setState(() {
+                  hgn1 = value;
+                });
+              },
             ),
             new CheckboxListTile(
-              title: const Text('Distinct and Sustained  Nystagmus at Maximum Deviation'),
+              title: const Text(
+                  'Distinct and Sustained  Nystagmus at Maximum Deviation'),
               value: hgn2,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   hgn2 = value;
@@ -337,6 +357,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text('Onset Prior to 45 Degrees'),
               value: hgn3,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   hgn3 = value;
@@ -352,6 +373,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text('Lack of Smooth Pursuit'),
               value: hgn4,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   hgn4 = value;
@@ -359,8 +381,10 @@ class SecondScreenState extends State<SecondScreen> {
               },
             ),
             new CheckboxListTile(
-              title: const Text('Distinct and Sustained  Nystagmus at Maximum Deviation'),
+              title: const Text(
+                  'Distinct and Sustained  Nystagmus at Maximum Deviation'),
               value: hgn5,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   hgn5 = value;
@@ -370,6 +394,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text('Onset Prior to 45 Degrees'),
               value: hgn6,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   hgn6 = value;
@@ -386,6 +411,7 @@ class SecondScreenState extends State<SecondScreen> {
               title: const Text("Can't Keep Balance"),
               subtitle: const Text('Instruction Stage'),
               value: wat1,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   wat1 = value;
@@ -396,6 +422,7 @@ class SecondScreenState extends State<SecondScreen> {
               title: const Text('Starts too Soon'),
               subtitle: const Text('Instruction Stage'),
               value: wat2,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   wat2 = value;
@@ -414,6 +441,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text('Misses Heel to Toe'),
               value: wat4,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   wat4 = value;
@@ -423,6 +451,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text("Steps Off Line"),
               value: wat5,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   wat5 = value;
@@ -432,6 +461,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text('Uses Arms for Balance'),
               value: wat6,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   wat6 = value;
@@ -441,6 +471,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text("Wrong Number of Steps"),
               value: wat7,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   wat7 = value;
@@ -450,6 +481,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text('Improper Turn'),
               value: wat8,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   wat8 = value;
@@ -465,6 +497,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text("Sways"),
               value: ols1,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   ols1 = value;
@@ -474,6 +507,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text('Uses Arms for Balance'),
               value: ols2,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   ols2 = value;
@@ -483,6 +517,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text("Hops"),
               value: ols3,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   ols3 = value;
@@ -492,6 +527,7 @@ class SecondScreenState extends State<SecondScreen> {
             new CheckboxListTile(
               title: const Text('Puts Foot Down'),
               value: ols4,
+              activeColor: Colors.blueAccent,
               onChanged: (bool value) {
                 setState(() {
                   ols4 = value;
@@ -504,30 +540,213 @@ class SecondScreenState extends State<SecondScreen> {
       ),
 
 
-      
       floatingActionButton: new FloatingActionButton(
-          child: new Icon(Icons.receipt), onPressed: (){
+          child: new Icon(Icons.receipt), onPressed: () {
         _Shstring1();
         _Shstring2();
-        pdfview("""<h1>SFST Report</h1><table border=1><td>Horizontal Gaze Nystagmus</td></table <ul><li>${_hstring1}</li>  <li>${_hstring2}</li> """);
+        _Shstring3();
+        _Shstring4();
+        _Shstring5();
+        _Shstring6();
+        _Swstring1();
+        _Swstring2();
+        _Swstring3();
+        _Swstring4();
+        _Swstring5();
+        _Swstring6();
+        _Swstring7();
+        _Swstring8();
+        _Sostring1();
+        _Sostring2();
+        _Sostring3();
+        _Sostring4();
+        pdfview(
+            """<h1>SFST Report</h1><table border=1><td>Horizontal Gaze Nystagmus</td></table> <ul><li>${_hstring1}</li><li>${_hstring2}</li><li>${_hstring3}
+        <li>${_hstring4}</li><li>${_hstring5}</li><li>${_hstring6}</li></ul> \n\n\n\n<table border=1><td>Walk and Turn</td></table> <ul><li>${_wstring1}</li><li>${_wstring2}</li><li>${_wstring3}
+        <li>${_wstring4}</li><li>${_wstring5}</li><li>${_wstring6}</li><li>${_wstring7}</li><li>${_wstring8}</li></ul>\n\n\n\n<table border=1><td>One Legged Stand</td></table> <ul><li>${_ostring1}</li><li>${_ostring2}</li><li>${_ostring3}
+        <li>${_ostring4}</li></ul> """);
       }),
     );
-
   }
-  void  _Shstring1() {
-      if (hgn1 == true) {
-        _hstring1 = "Defendant displayed a lack of smooth pursuit ";
 
-      } else if (hgn1 == false){
-        _hstring1 = "Defendant did not display a lack of smooth pursuit ";
-      };
-  }
-  void  _Shstring2() {
-    if (hgn2 == true) {
-      _hstring2 = "Defendant displayed Distinct and Sustained Nystagmus at Maximum Deviation";
-
-    } else if (hgn2 == false){
-      _hstring2 = "Defendant did not display Distinct and Sustained Nystagmus at Maximum Deviation ";
+  void _Shstring1() {
+    if (hgn1 == true) {
+      _hstring1 =
+      "Defendant displayed a lack of smooth pursuit in the left eye. ";
+    } else {
+      _hstring1 =
+      "Defendant did not display a lack of smooth pursuit in the left eye. ";
     };
   }
+
+  void _Shstring2() {
+    if (hgn2 == true) {
+      _hstring2 =
+      "Defendant displayed Distinct and Sustained Nystagmus at Maximum Deviation in the left eye. ";
+    } else {
+      _hstring2 =
+      "Defendant did not display Distinct and Sustained Nystagmus at Maximum Deviation in the left eye. ";
+    };
+  }
+
+  void _Shstring3() {
+    if (hgn3 == true) {
+      _hstring3 =
+      "Defendant displayed an onset of Nystagmus prior to 45 degrees in the left eye. ";
+    } else  {
+      _hstring3 =
+      "Defendant did not display an onset of Nystagmus prior to 45 degrees in the left eye. ";
+    };
+  }
+
+  void _Shstring4() {
+    if (hgn4 == true) {
+      _hstring4 =
+      "Defendant displayed a lack of smooth pursuit in the right eye ";
+    } else {
+      _hstring4 =
+      "Defendant did not display a lack of smooth pursuit in the right eye";
+    };
+  }
+
+  void _Shstring5() {
+    if (hgn5 == true) {
+      _hstring5 =
+      "Defendant displayed Distinct and Sustained Nystagmus at Maximum Deviation in the right eye";
+    } else {
+      _hstring5 =
+      "Defendant did not display Distinct and Sustained Nystagmus at Maximum Deviation in the right eye";
+    };
+  }
+
+  void _Shstring6() {
+    if (hgn6 == true) {
+      _hstring6 =
+      "Defendant displayed an onset of Nystagmus prior to 45 degrees in the right eye";
+    } else  {
+      _hstring6 =
+      "Defendant did not display an onset of Nystagmus prior to 45 degrees in the right eye";
+    };
+  }
+
+  void _Swstring1() {
+    if (wat1 == true) {
+      _wstring1 =
+      "Defendant could not keep balance during instruction phase. ";
+    } else {
+      _wstring1 =
+      "Defendant kept balance during instruction phase. ";
+    };
+  }
+
+  void _Swstring2() {
+    if (wat2 == true) {
+      _wstring2 =
+      "Defendant started too soon. ";
+    } else {
+      _wstring2 =
+      "Defendant did not start during instruction phase. ";
+    };
+  }
+
+  void _Swstring3() {
+    if (wat3 == true) {
+      _wstring3 =
+      "Defendant stopped walking. ";
+    } else {
+      _wstring3 =
+      "Defendant did not stop walking. ";
+    };
+  }
+
+  void _Swstring4() {
+    if (wat4 == true) {
+      _wstring4 =
+      "Defendant missed heel to toe. ";
+    } else {
+      _wstring4 =
+      "Defendant did not miss heel to toe. ";
+    };
+  }
+
+  void _Swstring5() {
+    if (wat5 == true) {
+      _wstring5 =
+      "Defendant stepped off line. ";
+    } else {
+      _wstring5 =
+      "Defendant did not step off line. ";
+    };
+  }
+
+  void _Swstring6() {
+    if (wat6 == true) {
+      _wstring6 =
+      "Defendant used arms for balance. ";
+    } else {
+      _wstring6 =
+      "Defendant did not use arms for balance. ";
+    };
+  }
+
+  void _Swstring7() {
+      if (wat7 == true) {
+        _wstring7 =
+        "Defendant took the wrong number of steps. ";
+      } else  {
+        _wstring7 =
+        "Defendant took the correct number of steps. ";
+      }
+    }
+    
+  void _Swstring8() {
+    if (wat8 == true) {
+      _wstring8 =
+      "Defendant made an improper turn. ";
+    } else {
+      _wstring8 =
+      "Defendant did not make an improper turn. ";
+    }
+  }
+
+  void _Sostring1() {
+    if (ols1 == true) {
+      _ostring1 =
+      "Defendant swayed. ";
+    } else  {
+      _ostring1 =
+      "Defendant did not sway. ";
+    }
+  }
+
+  void _Sostring2() {
+    if (ols2 == true) {
+      _ostring2 =
+      "Defendant used arms for balance. ";
+    } else  {
+      _ostring2 =
+      "Defendant did not use arms for balance. ";
+    }
+  }
+
+  void _Sostring3() {
+    if (ols3 == true) {
+      _ostring3 =
+      "Defendant hopped. ";
+    } else  {
+      _ostring3 =
+      "Defendant did not hop. ";
+    }
+  }
+
+  void _Sostring4() {
+    if (ols4 == true) {
+      _ostring4 =
+      "Defendant put foot down. ";
+    } else {
+      _ostring4 =
+      "Defendant did not put foot down. ";
+    }
+  }
+
 }

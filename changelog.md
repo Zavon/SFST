@@ -4,7 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 - Prepare for use of SharedPrefs to save checkbox value at close
-- Begin initial coding for saving clues to report form.
+
+## [2.0] - 2018-07-19
+### Clues page
+- Ability to create a pdf report
 
 ## [1.7] - 2018-07-18
 ### Clues Page
