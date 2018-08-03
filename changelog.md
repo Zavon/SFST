@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 - Prepare for use of SharedPrefs to save checkbox value at close
+- Officer's section
+- Change implementation of about screen
+
+
+## [2.1] - 2018-08-01
+### Clues page
+- Added case number, offender, and time and date
 
 ## [2.0] - 2018-07-19
 ### Clues page
