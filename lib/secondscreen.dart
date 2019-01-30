@@ -1,4 +1,4 @@
-import 'package:pdfview/pdfview.dart';
+import 'package:flutter_html2pdf_viewer/flutter_html2pdf_viewer.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
@@ -33,7 +33,7 @@ class SecondScreenState extends State<SecondScreen> {
   bool wat4 = false; //Misses heel to toe
   bool wat5 = false; //Steps off line
   bool wat6 = false; //Uses arms for balance
-  bool wat7 = false; //Wrong number of steps
+  bool wat7 = false; //Wrong numbe  r of steps
   bool wat8 = false; //Improper turn
 
   String _wstring1;

@@ -7,7 +7,9 @@ dependencies:
   sticky_header_list:
   shared_preferences:
   flutter_webview_plugin:
-  pdfview:
+  flutter_html2pdf_viewer:
+  datetime_picker_formfield:
+  intl:
   dynamic_theme:
       git:
         url: git://github.com/Norbert515/dynamic_theme.git
